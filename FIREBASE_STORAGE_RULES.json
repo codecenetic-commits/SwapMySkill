@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "chat-documents": {
+      "$roomId": {
+        ".read": "auth != null && root.child('rooms').child($roomId).child('participants').hasChild(auth.uid)",
+        ".write": "auth != null && root.child('rooms').child($roomId).child('participants').hasChild(auth.uid)",
+        "$documentId": {
+          ".validate": "newData.hasChildren(['name', 'size', 'contentType', 'uploadedAt'])"
+        }
+      }
+    }
+  }
+}
